@@ -1,10 +1,7 @@
-import {Router} from 'express';
+import { Router } from 'express';
 
 const routes = new Router();
 
-routes.get('/', (req, res) => {
-  return res.json({a: "teste perdi"});
-});
-
+routes.get('/', (req, res) => res.json({ a: 'teste perdi' }));
 
 export default routes;
