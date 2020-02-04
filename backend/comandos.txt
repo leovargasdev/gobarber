@@ -1,0 +1,6 @@
+- Rodar imigrações:
+    yarn sequelize db:migrate
+- Undo da ultima imigrate
+    yarn sequelize db:migrate:undo
+- Undo de todas as migrations
+    yarn sequelize db:migrate:undo:all
