@@ -7,7 +7,7 @@ export default async (req, res, next) => {
   const authHeater = req.headers.authorization;
 
   if (!authHeater) {
-    return res.status(401).json({ error: '' });
+    return res.status(401).json({ error: 'Token not provided' });
   }
 
   const [, token] = authHeater.split(' ');
