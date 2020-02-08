@@ -31,9 +31,10 @@ class User extends Model {
     return bcrypt.compare(password, this.password_hash);
   }
 
-  // static associate(models) {
-  //   this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
-  // }
+  // Criando a relação entre a tabela File
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
+  }
 }
 
 export default User;
