@@ -5,6 +5,7 @@ import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
+import Notification from '../schemas/Notification';
 
 class AppointmentController {
   async store(req, res) {
@@ -55,15 +56,15 @@ class AppointmentController {
       date: hourStart,
     });
 
-    // const user = await User.findByPk(req.userId);
-    // const formatDate = format(hourStart, "'dia' dd 'de' MMMM', às' H:mm'h'", {
-    //   locale: pt,
-    // });
+    const user = await User.findByPk(req.userId);
+    const formatDate = format(hourStart, "'dia' dd 'de' MMMM', às' H:mm'h'", {
+      locale: pt,
+    });
 
-    // await Notification.create({
-    //   content: `Novo agendamento de ${user.name} para ${formatDate}`,
-    //   user: provider_id,
-    // });
+    await Notification.create({
+      content: `Novo agendamento de ${user.name} para ${formatDate}`,
+      user: provider_id,
+    });
 
     return res.json(appointment);
   }
