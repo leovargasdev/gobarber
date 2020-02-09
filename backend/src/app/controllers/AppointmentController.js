@@ -3,6 +3,7 @@ import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 import User from '../models/User';
+import File from '../models/File';
 import Appointment from '../models/Appointment';
 
 class AppointmentController {
@@ -63,6 +64,34 @@ class AppointmentController {
     //   content: `Novo agendamento de ${user.name} para ${formatDate}`,
     //   user: provider_id,
     // });
+
+    return res.json(appointment);
+  }
+
+  async index(req, res) {
+    const { page = 1 } = req.query;
+
+    const appointment = await Appointment.findAll({
+      where: { user_id: req.userId, canceled_at: null },
+      order: ['date'],
+      attributes: ['date', 'id'],
+      limit: 20,
+      offset: (page - 1) * 20,
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'id'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['id', 'path', 'url'],
+            },
+          ],
+        },
+      ],
+    });
 
     return res.json(appointment);
   }
