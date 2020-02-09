@@ -96,6 +96,47 @@ class AppointmentController {
 
     return res.json(appointment);
   }
+
+  async delete(req, res) {
+    const appointment = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'email'],
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name'],
+        },
+      ],
+    });
+    // Somente o usuário que criou o agendamento pode deletar
+    if (appointment.user_id !== req.userId) {
+      return res.status(400).json({
+        error: "You don't have permissionto cancel this appointment.",
+      });
+    }
+    // Subitrair 2 horas da data de agendamento
+    const dataWithSub = subHours(appointment.date, 2);
+    // Um agendamento não pode mais ser cancelado nas 2 últimas horas antes do horário marcado.
+    if (isBefore(dataWithSub, new Date())) {
+      return res.status(400).json({
+        error: 'You can only cancel appointment 2 hours in advance.',
+      });
+    }
+
+    appointment.canceled_at = new Date();
+
+    await appointment.save();
+
+    // await Queue.add(CancellationMail.key, {
+    //   appointment,
+    // });
+
+    return res.json(appointment);
+  }
 }
 
 export default new AppointmentController();
