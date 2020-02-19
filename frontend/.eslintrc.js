@@ -22,6 +22,7 @@ module.exports = {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
+    "import/no-unresolved": [2, { "caseSensitive": false }],
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "react/jsx-one-expression-per-line": "off",
     "global-require": "off",
