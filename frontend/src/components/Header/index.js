@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import Notifications from '~/components/Notifications';
-// import logo from '~/assets/logo-roxo.svg';
+import logo from '~/assets/logo-purple.svg';
 
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
-  // const profile = useSelector(state => state.user.profile);
+  const profile = useSelector(state => state.user.profile);
 
   return (
     <Container>
-      <h1>menu</h1>
-      {/* <Content>
+      <Content>
         <nav>
           <img src={logo} alt="gobarber" />
           <Link to="/dashboard">Dashboard</Link>
         </nav>
         <aside>
-          <Notifications />
+          {/* <Notifications /> */}
           <Profile>
             <div>
               <strong>{profile.name}</strong>
@@ -33,7 +32,7 @@ export default function Header() {
             />
           </Profile>
         </aside>
-      </Content> */}
+      </Content>
     </Container>
   );
 }

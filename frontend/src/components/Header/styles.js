@@ -13,7 +13,7 @@ export const Content = styled.div`
   align-items: center;
 
   nav {
-    /* Alinha os itens na horizontal */
+    /* Alinha os itens na verticalmente */
     display: flex;
     align-items: center;
 
