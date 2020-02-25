@@ -69,4 +69,5 @@ export const Container = styled.div`
     &:hover {
       background: ${darken(0.1, '#f64c75')};
     }
+  }
 `;
