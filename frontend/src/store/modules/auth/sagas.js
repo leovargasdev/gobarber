@@ -55,6 +55,7 @@ export function setToken({ payload }) {
 }
 
 export function singOut() {
+  toast.success('Sessão encerrada com sucesso!');
   history.push('/');
 }
 
