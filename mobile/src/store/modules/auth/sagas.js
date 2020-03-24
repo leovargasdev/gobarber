@@ -62,7 +62,6 @@ export function setToken({payload}) {
 
 export function singOut() {
   Alert.alert('Sessão', 'Logout feito com sucesso');
-  // history.push('/');
 }
 
 export default all([
