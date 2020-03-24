@@ -1,20 +1,24 @@
-import React from 'react';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import SignIn from '~/pages/SignIn';
+import SignUp from '~/pages/SignUp';
+import Dashboard from '~/pages/Dashboard';
 
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-
-const Stack = createStackNavigator();
-
-export default function Routes() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-      </Stack.Navigator>
-    </NavigationContainer>
+export default (signedIn = false) =>
+  createAppContainer(
+    createSwitchNavigator(
+      {
+        Sign: createSwitchNavigator({
+          SignIn,
+          SignUp,
+        }),
+        App: createBottomTabNavigator({
+          Dashboard,
+        }),
+      },
+      {
+        initialRouteName: signedIn ? 'App' : 'Sign',
+      },
+    ),
   );
-}
