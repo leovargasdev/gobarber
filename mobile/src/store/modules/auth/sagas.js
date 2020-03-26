@@ -60,13 +60,8 @@ export function setToken({payload}) {
   }
 }
 
-export function singOut() {
-  Alert.alert('Sessão', 'Logout feito com sucesso');
-}
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', singIn),
   takeLatest('@auth/SIGN_UP_REQUEST', singUp),
-  takeLatest('@auth/SIGN_OUT', singOut),
 ]);
