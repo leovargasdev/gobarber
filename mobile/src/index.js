@@ -5,7 +5,7 @@ import {StatusBar, YellowBox} from 'react-native';
 
 import './config/ReactotronConfig';
 import {store, persistor} from './store';
-import App from './App';
+import Routes from './routes';
 
 YellowBox.ignoreWarnings(['Encountered']);
 
@@ -14,7 +14,7 @@ export default function Index() {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
-        <App />
+        <Routes />
       </PersistGate>
     </Provider>
   );

@@ -1,5 +1,4 @@
 import React, {useRef, useState, useEffect} from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useDispatch, useSelector} from 'react-redux';
 
 import Background from '~/components/Background';
@@ -15,7 +14,7 @@ import {
 import {updateProfileRequest} from '~/store/modules/user/actions';
 import {signOut} from '~/store/modules/auth/actions';
 
-export default function Profile() {
+export default function Profile({navigation}) {
   const profile = useSelector(state => state.user.profile);
   const dispatch = useDispatch();
 
@@ -24,8 +23,8 @@ export default function Profile() {
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
 
-  const [name, setName] = useState(profile.name);
-  const [email, setEmail] = useState(profile.email);
+  const [name, setName] = useState(profile ? profile.name : '');
+  const [email, setEmail] = useState(profile ? profile.email : '');
   const [password, setPassword] = useState('');
   const [oldPassword, setOldPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -120,9 +119,9 @@ export default function Profile() {
   );
 }
 
-Profile.navigationOptions = {
-  tabBarLabel: 'Meu Perfil',
-  tabBarIcon: ({tintColor}) => (
-    <Icon name="person" size={20} color={tintColor} />
-  ),
-};
+// Profile.navigationOptions = {
+//   tabBarLabel: 'Meu Perfil',
+//   tabBarIcon: ({tintColor}) => (
+//     <Icon name="person" size={20} color={tintColor} />
+//   ),
+// };

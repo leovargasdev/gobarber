@@ -23,8 +23,8 @@ export function* singIn({payload}) {
     }
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
-
-    yield delay(3000);
+    // Efeito de Login
+    yield delay(1000);
 
     yield put(signInSuccess(token, user));
 
