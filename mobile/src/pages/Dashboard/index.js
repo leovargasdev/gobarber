@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import {useIsFocused} from '@react-navigation/native';
 import api from '~/services/api';
-import { useIsFocused } from '@react-navigation/native';
 
 import Background from '~/components/Background';
 import Appointment from '~/components/Appointment';

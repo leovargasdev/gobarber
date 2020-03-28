@@ -5,7 +5,7 @@ import {StatusBar, YellowBox} from 'react-native';
 
 import './config/ReactotronConfig';
 import {store, persistor} from './store';
-import Routes from './routes';
+import Routes from '~/routes';
 
 YellowBox.ignoreWarnings(['Encountered']);
 
