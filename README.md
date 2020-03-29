@@ -27,6 +27,7 @@
 </p>
 
 ## 💻 Projeto e Tecnologias
+  O Gobarber é uma aplicação feita para salões de beleza onde os usários podem agendar/marcar horários com os prestadores de serviços(salões) via app.
 
 - Descrever aplicação...
 - Tanto no Web quanto no mobile foi usado o [Redux](https://redux.js.org/) e o [Redux-Saga](https://redux-saga.js.org/).
