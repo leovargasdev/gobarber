@@ -62,7 +62,14 @@ Faça um clone desse repositório
 
 ### Backend
 1. A partir da raiz do projeto, entre na pasta rodando `cd backend`;
-2. Execulte `sh init.sh` para preencher as variáveis de ambiente;
+2. Execute o comando `sh init.sh` no terminal para preencher as variáveis de ambiente;
+2. Execute o comando `sh run.sh` no terminal para instalar as dependencias e executar a api;
+
+## :wrench: Readme em Construção
+
+<div align="center">
+  <img src="https://media.giphy.com/media/9zXM9n2URlcjC2Tnaq/giphy.gif"/>
+</div>
 
 ## 📝 Licença
 
